@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "job-hunt-mcp-server"
+version = "0.1.0"
+description = "Local plain-file MCP server for tracking job applications, interviews and follow-ups."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Asdale Dynamics, LLC" }]
+requires-python = ">=3.10"
+dependencies = ["mcp>=2,<3"]
+keywords = ["mcp", "job-hunt", "agent", "productivity", "local-first"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+jobhunt-mcp = "job_log_mcp.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
